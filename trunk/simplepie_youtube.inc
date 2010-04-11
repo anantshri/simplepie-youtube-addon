@@ -46,6 +46,7 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	    $data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 		$data = $data[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['content'];
         return $data[0]['attribs']['']['url'];
+        if ($this->)
 	}
  
 	// New method
