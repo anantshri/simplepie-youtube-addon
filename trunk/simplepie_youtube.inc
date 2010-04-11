@@ -26,7 +26,9 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	 * @access private
 	 */
 	var $is_youtube = true;
- 
+    var $is_fav = false;
+    var $is_playlist = true;
+    var $is_tag = false;
  
 	// New method
 	function get_youtube_player()
@@ -89,15 +91,18 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	function get_categories()
 	{
 		$categories = array();
- 
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_ATOM_10, 'category') as $category)
+        $cat_list = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
+        $cat_list = $cat_list[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['category'];
+		foreach ((array) $cat_list as $category)
 		{
+//		    $categories[] = $this->sanatize($category['attribs']['']['label']);
 			$term = null;
 			$scheme = null;
 			$label = null;
 			if (isset($category['attribs']['']['term']))
 			{
 				$term = $this->sanitize($category['attribs']['']['term'], SIMPLEPIE_CONSTRUCT_TEXT);
+				echo $term;
 			}
 			if (isset($category['attribs']['']['scheme']))
 			{
@@ -109,7 +114,7 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 			}
 			$categories[] =& new $this->feed->category_class($term, $scheme, $label);
 		}
-		foreach ((array) $this->get_item_tags('', 'category') as $category)
+/*		foreach ((array) $this->get_item_tags('', 'category') as $category)
 		{
 			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
@@ -133,7 +138,7 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 		{
 			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
 		}
- 
+*/ 
 		if (!empty($categories))
 		{
 			return SimplePie_Misc::array_unique($categories);
