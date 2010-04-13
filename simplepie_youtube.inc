@@ -70,14 +70,21 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 		$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 		$data = $data[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['content'];
 		$data = $data[0]['attribs']['']['url'];
-//echo "%" . $data . "%";
-		if ($data == "" )
+		//echo "%" . $data . "%";
+		if ($data == null )
 		{
+//			echo "inside Tagger";
 			//playlist not found then looking if its a tag style url placement
-			$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'link');
+			$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE, 'link');
 			$data =  $data[0]['attribs']['']['href'];
-			$txt = preg_replace('%/watch?v=%', '/v/', $data);
-			return $txt;
+			//echo "%" . $data . "%";
+			$data = str_replace('/watch?v=', '/v/', $data);
+//			echo "%" . $data . "%";
+			return $data;
+		}
+		if ($dat == null)
+		{
+			// This will be section in which favourite style rss will be parsed
 		}
 		return $data;
 	}
