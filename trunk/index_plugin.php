@@ -40,7 +40,7 @@ $feed->handle_content_type(); // Take care of the character encoding
 <?php
 //echo "<br />Player URL : " . $item->get_youtube_player_url() . "<br />"; 
     echo "<pre>";
-        $ar = $item->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE,"link");
+ //       $ar = $item->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE,"link");
 //		  $ar = $item->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 //        $ar = $ar[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['category'];
       echo print_r($ar);
@@ -57,7 +57,7 @@ echo $item->get_youtube_thumbnail_url(3);
 ?>">
 <?php
 
-//    echo $item->get_youtube_player();
+    echo $item->get_youtube_player();
 
 ?>
 <?php 
