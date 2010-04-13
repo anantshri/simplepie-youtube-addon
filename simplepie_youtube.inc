@@ -17,20 +17,42 @@ if (!defined('SIMPLEPIE_NAMESPACE_YOUTUBE'))
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE_YT', 'http://gdata.youtube.com/schemas/2007');
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE_GD', 'http://schemas.google.com/g/2005');	
 }
- 
+class SimplePie_parser_youtube extends SimplePie_Parser
+{
+   function set_youtube_type()
+    {
+	echo $this->feed_url;
+    if(strpos($this->feed_url,"playlist") > 0)
+	{
+	    $this->is_playlist = true;
+		echo "<br /><b>Playlist</b><br />";
+	}
+	if(strpos($this->feed_url,"fav") > 0)
+	{
+	    $this->is_fav = true;
+		echo "<br /><b>Favourite</b><br />";
+	}
+	if(strpos($this->feed_url,"-") > 0)
+	{
+	    $this->is_tag = true;
+		echo "<br /><b>Tag</b><br />";
+	}
+		echo "<br /><b>Out</b><br />";	
+    }
+
+}
 class SimplePie_Item_YouTube extends SimplePie_Item
 {
- 
-	/**
+	/*
 	 * @var bool is this a youtube item?
 	 * @access private
 	 */
 	var $is_youtube = true;
     var $is_fav = false;
-    var $is_playlist = true;
+    var $is_playlist = false;
     var $is_tag = false;
  
-	// New method
+ 	// New method
 	function get_youtube_player()
 	{
 	    $data = "<object width='480' height='385'>\n";
@@ -43,10 +65,21 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	}
 	function get_youtube_player_url()
 	{
-	    $data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
+
+		// checking the playlist style url
+		$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 		$data = $data[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['content'];
-        return $data[0]['attribs']['']['url'];
-        if ($this->)
+		$data = $data[0]['attribs']['']['url'];
+//echo "%" . $data . "%";
+		if ($data == "" )
+		{
+			//playlist not found then looking if its a tag style url placement
+			$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'link');
+			$data =  $data[0]['attribs']['']['href'];
+			$txt = preg_replace('%/watch?v=%', '/v/', $data);
+			return $txt;
+		}
+		return $data;
 	}
  
 	// New method
@@ -76,8 +109,11 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	// New method
 	function get_youtube_title()
 	{
+	if (!$this->is_fav)
+	{
 		$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE, 'title');
 		return $data[0]['data'];
+	}
 	}
  
 	// New method

@@ -6,6 +6,7 @@ $feed = new SimplePie(); // Create a new instance of SimplePie
 $feed->set_feed_url('http://gdata.youtube.com/feeds/api/playlists/957F7A8A7B24D497');
 $feed->set_cache_duration (600); //The cache duration
 $feed->set_item_class('SimplePie_Item_YouTube');
+$feed->set_parser_class('SimplePie_Parser_YouTube');
 $feed->enable_xml_dump(isset($_GET['xmldump']) ? true : false);
 
 $success = $feed->init(); // Initialize SimplePie
@@ -20,8 +21,12 @@ $feed->handle_content_type(); // Take care of the character encoding
 <body>
 <h1><a href="<?php echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a></h1>
 <?php foreach($feed->get_items() as $item): ?>
+<!--
 <?php
-
+//    $item->set_youtube_type();
+?>
+-->
+<?php
     if ($item->get_link()=="")
     {
         echo "<br />";

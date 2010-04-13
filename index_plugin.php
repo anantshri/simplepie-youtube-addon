@@ -5,6 +5,7 @@ $feed = new SimplePie(); // Create a new instance of SimplePie
 $feed->set_feed_url('http://gdata.youtube.com/feeds/base/videos/-/ubuntu?client=ytapi-youtube-browse&v=2');
 $feed->set_cache_duration (600); //The cache duration
 $feed->set_item_class('SimplePie_Item_YouTube');
+$feed->set_parser_class('SimplePie_Parser_YouTube');
 $feed->enable_xml_dump(isset($_GET['xmldump']) ? true : false);
 $success = $feed->init(); // Initialize SimplePie
 $feed->handle_content_type(); // Take care of the character encoding
@@ -15,10 +16,18 @@ $feed->handle_content_type(); // Take care of the character encoding
     <title>YouTube + Simple Pie Sample</title>
 </head>
 <body>
+<?php
+    //$feed->set_youtube_type();
+?>
+
+<h1><a href="<?php
+
+    echo urldecode($feed->feed_url);
+
+?>">Feed URL</a> </h1>
 <h1><a href="<?php echo $feed->get_permalink(); ?>"><?php echo $feed->get_title(); ?></a></h1>
 <?php foreach($feed->get_items() as $item): ?>
 <?php
-
     if ($item->get_link()=="")
     {
         echo "<br />";
@@ -29,11 +38,13 @@ $feed->handle_content_type(); // Take care of the character encoding
 <h3><?php echo $item->get_title(); ?></h3>
 
 <?php
+//echo "<br />Player URL : " . $item->get_youtube_player_url() . "<br />"; 
     echo "<pre>";
-          $ar = $item->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE, 'feed');
+        $ar = $item->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE,"link");
+//		  $ar = $item->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 //        $ar = $ar[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['category'];
       echo print_r($ar);
-        print_r($item->get_categories());
+//        print_r($item->get_categories());
     echo "</pre>";
 
     echo "<br />You Tube Title : " .  $item->get_youtube_title();
@@ -49,7 +60,11 @@ echo $item->get_youtube_thumbnail_url(3);
 //    echo $item->get_youtube_player();
 
 ?>
-<?php echo $item->get_description(); ?>
+<?php 
+
+// echo $item->get_description(); 
+
+?>
 <br />
 <?php
 
