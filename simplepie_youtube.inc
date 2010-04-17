@@ -17,30 +17,6 @@ if (!defined('SIMPLEPIE_NAMESPACE_YOUTUBE'))
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE_YT', 'http://gdata.youtube.com/schemas/2007');
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE_GD', 'http://schemas.google.com/g/2005');	
 }
-class SimplePie_parser_youtube extends SimplePie_Parser
-{
-   function set_youtube_type()
-    {
-	echo $this->feed_url;
-    if(strpos($this->feed_url,"playlist") > 0)
-	{
-	    $this->is_playlist = true;
-		echo "<br /><b>Playlist</b><br />";
-	}
-	if(strpos($this->feed_url,"fav") > 0)
-	{
-	    $this->is_fav = true;
-		echo "<br /><b>Favourite</b><br />";
-	}
-	if(strpos($this->feed_url,"-") > 0)
-	{
-	    $this->is_tag = true;
-		echo "<br /><b>Tag</b><br />";
-	}
-		echo "<br /><b>Out</b><br />";	
-    }
-
-}
 class SimplePie_Item_YouTube extends SimplePie_Item
 {
 	/*
@@ -52,6 +28,15 @@ class SimplePie_Item_YouTube extends SimplePie_Item
     var $is_playlist = false;
     var $is_tag = false;
  
+	// new function
+	function get_youtube_videoid()
+	{
+		$data = $this->get_youtube_player_url();
+		// FIX ME : check and if possible use reg exp to extract the video id.
+		$data = substr($data,strpos($data,"/v/")+3,strpos($data,"/v/") - strpos($data,"feature")-7);
+//		$data = preg_replace('.v.&feature','',$data);
+		return $data;
+	}
  	// New method
 	function get_youtube_player()
 	{
@@ -82,7 +67,7 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 //			echo "%" . $data . "%";
 			return $data;
 		}
-		if ($dat == null)
+		if ($data == null)
 		{
 			// This will be section in which favourite style rss will be parsed
 		}
@@ -94,7 +79,12 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	{
 	    $data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 		$data = $data[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['thumbnail'];
-		return $data[$no]['attribs']['']['url'];
+		$data = $data[$no]['attribs']['']['url'];
+		if ($data == null)
+		{
+			$data =  "http://img.youtube.com/vi/" . $this->get_youtube_videoid() . "/" . $no .  ".jpg";
+		}
+		return $data;
 	}
  
 	// New method
@@ -130,7 +120,19 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 		$data = $data[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE]['name'];
 		return $data[0]['data'];
 	}
- 
+	// overloading the parent functions
+/*	function get_description()
+	{
+//        echo "Description";
+//        return SimplePie_Item::get_description();
+	}
+*/    function get_content()
+    {
+        $data = $this->get_youtube_player();      
+//        $data .= "Hello";
+        //echo "Content here";
+		return $data;
+    } 
 	// Overloading the categories method
 	function get_categories()
 	{

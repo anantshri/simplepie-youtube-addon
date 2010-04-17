@@ -47,10 +47,12 @@ Image Preview and embedded Player here<br />
 echo $item->get_youtube_thumbnail_url(3);
 ?>">
 <?php
-    echo $item->get_youtube_player();
+//    echo $item->get_youtube_player();
 ?>
 <br /> Description : <br />
-<?php echo $item->get_description(); ?>
+<?php echo $item->get_description(); 
+echo $item->get_content();
+?>
 <br />
 Category : <?php
 $cat_list = "";
