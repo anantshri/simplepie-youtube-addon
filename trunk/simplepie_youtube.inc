@@ -8,8 +8,6 @@
  
 if (!defined('SIMPLEPIE_NAMESPACE_YOUTUBE'))
 {
-//http://www.w3.org/2005/Atom
-	//define('SIMPLEPIE_NAMESPACE_YOUTUBE', 'http://search.yahoo.com/mrss/');
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE', 'http://www.w3.org/2005/Atom');
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA', 'http://search.yahoo.com/mrss/');
 	define('SIMPLEPIE_NAMESPACE_YOUTUBE_APP', 'http://purl.org/atom/app#');
@@ -24,17 +22,12 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 	 * @access private
 	 */
 	var $is_youtube = true;
-    var $is_fav = false;
-    var $is_playlist = false;
-    var $is_tag = false;
- 
 	// new function
 	function get_youtube_videoid()
 	{
 		$data = $this->get_youtube_player_url();
 		// FIX ME : check and if possible use reg exp to extract the video id.
 		$data = substr($data,strpos($data,"/v/")+3,strpos($data,"/v/") - strpos($data,"feature")-7);
-//		$data = preg_replace('.v.&feature','',$data);
 		return $data;
 	}
  	// New method
@@ -55,21 +48,13 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 		$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA, 'group');
 		$data = $data[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['content'];
 		$data = $data[0]['attribs']['']['url'];
-		//echo "%" . $data . "%";
 		if ($data == null )
 		{
-//			echo "inside Tagger";
 			//playlist not found then looking if its a tag style url placement
 			$data = $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE, 'link');
 			$data =  $data[0]['attribs']['']['href'];
-			//echo "%" . $data . "%";
 			$data = str_replace('/watch?v=', '/v/', $data);
-//			echo "%" . $data . "%";
 			return $data;
-		}
-		if ($data == null)
-		{
-			// This will be section in which favourite style rss will be parsed
 		}
 		return $data;
 	}
@@ -121,16 +106,9 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 		return $data[0]['data'];
 	}
 	// overloading the parent functions
-/*	function get_description()
-	{
-//        echo "Description";
-//        return SimplePie_Item::get_description();
-	}
-*/    function get_content()
+    function get_content()
     {
-        $data = $this->get_youtube_player();      
-//        $data .= "Hello";
-        //echo "Content here";
+        $data = $this->get_youtube_player();
 		return $data;
     } 
 	// Overloading the categories method
@@ -141,7 +119,6 @@ class SimplePie_Item_YouTube extends SimplePie_Item
         $cat_list = $cat_list[0]['child'][SIMPLEPIE_NAMESPACE_YOUTUBE_MEDIA]['category'];
 		foreach ((array) $cat_list as $category)
 		{
-//		    $categories[] = $this->sanatize($category['attribs']['']['label']);
 			$term = null;
 			$scheme = null;
 			$label = null;
@@ -160,31 +137,6 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 			}
 			$categories[] =& new $this->feed->category_class($term, $scheme, $label);
 		}
-/*		foreach ((array) $this->get_item_tags('', 'category') as $category)
-		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
-		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_11, 'subject') as $category)
-		{
-			$exploded_categories = explode(' ', $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT));
-			foreach ((array) $exploded_categories as $exploded_category) {
-				$categories[] =& new $this->feed->category_class($exploded_category, null, null);
-			}
- 
-		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_YOUTUBE, 'category') as $category)
-		{
-			$exploded_categories = explode(' ', $this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT));
-			foreach ((array) $exploded_categories as $exploded_category) {
-				$categories[] =& new $this->feed->category_class($exploded_category, null, null);
-			}
- 
-		}
-		foreach ((array) $this->get_item_tags(SIMPLEPIE_NAMESPACE_DC_10, 'subject') as $category)
-		{
-			$categories[] =& new $this->feed->category_class($this->sanitize($category['data'], SIMPLEPIE_CONSTRUCT_TEXT), null, null);
-		}
-*/ 
 		if (!empty($categories))
 		{
 			return SimplePie_Misc::array_unique($categories);
@@ -195,5 +147,4 @@ class SimplePie_Item_YouTube extends SimplePie_Item
 		}
 	}
 }
- 
 ?>
