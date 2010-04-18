@@ -5,7 +5,6 @@ $feed = new SimplePie(); // Create a new instance of SimplePie
 $feed->set_feed_url('http://gdata.youtube.com/feeds/base/users/anantshri/favorites');
 $feed->set_cache_duration (600); //The cache duration
 $feed->set_item_class('SimplePie_Item_YouTube');
-$feed->set_parser_class('SimplePie_Parser_YouTube');
 $feed->enable_xml_dump(isset($_GET['xmldump']) ? true : false);
 $success = $feed->init(); // Initialize SimplePie
 $feed->handle_content_type(); // Take care of the character encoding
