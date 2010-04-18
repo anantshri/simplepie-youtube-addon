@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<entry xmlns='http://www.w3.org/2005/Atom' xmlns:media='http://search.yahoo.com/mrss/' xmlns:gd='http://schemas.google.com/g/2005' xmlns:yt='http://gdata.youtube.com/schemas/2007'>
+    <id>http://gdata.youtube.com/feeds/api/videos/5qzh_NbhQb0</id>
+    <published>2009-12-30T10:42:06.000Z</published>
+    <updated>2010-04-11T15:53:59.000Z</updated>
+    <category scheme='http://schemas.google.com/g/2005#kind' term='http://gdata.youtube.com/schemas/2007#video'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/categories.cat' term='Entertainment' label='Entertainment'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='zoom'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='tv'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='india'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='hindi'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='bollywood'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='entertainment'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='youtube'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='2009'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='2010'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='aamir'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='khan'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Rajkumar'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Hirani'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Vidhu'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Vinod'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Chopra'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='R.'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Madhavan'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Sharman'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Joshi'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Kareena'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Kapoor'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Boman'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='Irani'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='most'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='viewed'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='song'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='songs'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='video'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='videos'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='free'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='download'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='hit'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='best'/>
+    <category scheme='http://gdata.youtube.com/schemas/2007/keywords.cat' term='idiots'/>
+    <title type='text'>3 idiots and the Alcohol scene</title>
+    <content type='text'>When asked what is the most idiotic thing they have done so far, Sharman, Madhvan and Aamir come up with the most hilarious answers! Madhavan calls himself a new  comer in the industry while Sharman interprets being an idiot in his own way. Aamir speaks about his rough decisions, some of his most famous movies and explains why he calls himself an idiot. Aamir also talks about the quality of movies throughout the last 2 decades and explains how experimentation is the flavour of the season! Catch the 3 idiots in an engaging conversation with Omar Qureshi. Click on the video to watch the whole conversation!</content>
+    <link rel='alternate' type='text/html' href='http://www.youtube.com/watch?v=5qzh_NbhQb0&amp;feature=youtube_gdata'/>
+    <link rel='http://gdata.youtube.com/schemas/2007#video.responses' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos/5qzh_NbhQb0/responses'/>
+    <link rel='http://gdata.youtube.com/schemas/2007#video.related' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos/5qzh_NbhQb0/related'/>
+    <link rel='http://gdata.youtube.com/schemas/2007#mobile' type='text/html' href='http://m.youtube.com/details?v=5qzh_NbhQb0'/>
+    <link rel='self' type='application/atom+xml' href='http://gdata.youtube.com/feeds/api/videos/5qzh_NbhQb0'/>
+    <author>
+        <name>zoomdekho</name>
+        <uri>http://gdata.youtube.com/feeds/api/users/zoomdekho</uri>
+    </author>
+    <gd:comments>
+        <gd:feedLink href='http://gdata.youtube.com/feeds/api/videos/5qzh_NbhQb0/comments' countHint='23'/>
+    </gd:comments>
+    <media:group>
+        <media:category label='Entertainment' scheme='http://gdata.youtube.com/schemas/2007/categories.cat'>
+            Entertainment
+        </media:category>
+        <media:content url='http://www.youtube.com/v/5qzh_NbhQb0?f=videos&amp;app=youtube_gdata' type='application/x-shockwave-flash' medium='video' isDefault='true' expression='full' duration='169' yt:format='5'/>
+        <media:content url='rtsp://v4.cache2.c.youtube.com/CiILENy73wIaGQm9QeHW_OGs5hMYDSANFEgGUgZ2aWRlb3MM/0/0/0/video.3gp' type='video/3gpp' medium='video' expression='full' duration='169' yt:format='1'/>
+        <media:content url='rtsp://v7.cache5.c.youtube.com/CiILENy73wIaGQm9QeHW_OGs5hMYESARFEgGUgZ2aWRlb3MM/0/0/0/video.3gp' type='video/3gpp' medium='video' expression='full' duration='169' yt:format='6'/>
+        <media:description type='plain'>
+            When asked what is the most idiotic thing they have done so far, Sharman, Madhvan and Aamir come up with the most hilarious answers! Madhavan calls himself a new  comer in the industry while Sharman interprets being an idiot in his own way. Aamir speaks about his rough decisions, some of his most famous movies and explains why he calls himself an idiot. Aamir also talks about the quality of movies throughout the last 2 decades and explains how experimentation is the flavour of the season! Catch the 3 idiots in an engaging conversation with Omar Qureshi. Click on the video to watch the whole conversation!
+        </media:description>
+        <media:keywords>zoom, tv, india, hindi, bollywood, entertainment, youtube, 2009, 2010, aamir, khan, Rajkumar, Hirani, Vidhu, Vinod, Chopra, R., Madhavan, Sharman, Joshi, Kareena, Kapoor, Boman, Irani, most, viewed, song, songs, video, videos, free, download, hit, best, idiots</media:keywords><media:player url='http://www.youtube.com/watch?v=5qzh_NbhQb0&amp;feature=youtube_gdata'/><media:thumbnail url='http://i.ytimg.com/vi/5qzh_NbhQb0/2.jpg' height='90' width='120' time='00:01:24.500'/><media:thumbnail url='http://i.ytimg.com/vi/5qzh_NbhQb0/1.jpg' height='90' width='120' time='00:00:42.250'/><media:thumbnail url='http://i.ytimg.com/vi/5qzh_NbhQb0/3.jpg' height='90' width='120' time='00:02:06.750'/><media:thumbnail url='http://i.ytimg.com/vi/5qzh_NbhQb0/0.jpg' height='240' width='320' time='00:01:24.500'/>
+        <media:title type='plain'>3 idiots and the Alcohol scene</media:title>
+        <yt:duration seconds='169'/>
+    </media:group>
+    <gd:rating average='4.814815' max='5' min='1' numRaters='27' rel='http://schemas.google.com/g/2005#overall'/>
+    <yt:statistics favoriteCount='8' viewCount='30352'/>
+</entry>
